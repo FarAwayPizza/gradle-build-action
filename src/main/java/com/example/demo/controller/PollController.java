@@ -1,9 +1,14 @@
 package com.example.demo.controller;
 import com.example.demo.model.Poll;
 import com.example.demo.model.PollManager;
+import com.example.demo.model.Vote;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/polls")
 public class PollController {
@@ -22,8 +27,9 @@ public class PollController {
         return pollManager.getAllPolls();
     }
     @PostMapping
-    public Poll createPoll(@RequestBody Poll poll) {
-        return pollManager.addPoll(poll);
+    public ResponseEntity<?> createPoll(@RequestBody Poll poll) {
+        pollManager.addPoll(poll); // Assuming your PollManager has an addPoll method
+        return ResponseEntity.ok("Poll created successfully");
     }
 
     @PutMapping("/{question}")
@@ -34,5 +40,18 @@ public class PollController {
     public void deletePoll(@PathVariable String id) {
         pollManager.deletePoll(Integer.parseInt(id));
     }
+
+    @PutMapping("/{pollId}/votes")
+    public ResponseEntity<?> updateVote(@PathVariable Long pollId, @RequestBody Vote vote) {
+        Poll poll = pollManager.getPollById(pollId);
+        if (poll == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Poll not found");
+        }
+        poll.addVote(vote); // Pass the correct optionId from the vote
+
+        return ResponseEntity.ok("Vote updated successfully");
+
+    }
+
 
 }

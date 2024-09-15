@@ -3,12 +3,13 @@ package com.example.demo.controller;
 import com.example.demo.model.PollManager;
 import com.example.demo.model.Vote;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/votes")
 public class VoteController {
@@ -21,9 +22,10 @@ public class VoteController {
     }
 
     @PostMapping
-    public Vote createVote(@RequestBody Vote vote) {
-        // Instead of creating a new Vote object, use the one provided by the request
-        return pollManager.addVote(vote);  // Assuming pollManager has an addVote method
+    public ResponseEntity<?> createVote(@RequestBody Vote vote) {
+        // Call PollManager's method to add the vote
+        pollManager.addVote(vote);
+        return ResponseEntity.ok("Vote added successfully");
     }
 
     @GetMapping("/{id}")

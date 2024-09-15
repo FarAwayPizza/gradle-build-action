@@ -46,14 +46,22 @@ public class PollManager {
 
     // Add a vote
     public Vote addVote(Vote vote) {
-        String voteKey = generateVoteKey(vote.getUsername(), vote.getPollId());
-        votes.put(voteKey, vote);  // Add the vote to the votes map
+        // Find the poll by ID from the vote object
+        Poll poll = getPollById(vote.getPollId());
+        if (poll != null) {
+            // Assuming Poll has a method to add votes
+            poll.addVote(vote); // Adapt this line to fit your data structure
+        } else {
+            throw new IllegalArgumentException("Poll not found for ID: " + vote.getPollId());
+        }
         return vote;
     }
 
+
+
     // Update an existing vote
     public Vote updateVote(Vote updatedVote) {
-        String voteKey = generateVoteKey(updatedVote.getUsername(), updatedVote.getPollId());
+        String voteKey = generateVoteKey(updatedVote.getUsername(), Math.toIntExact(updatedVote.getPollId()));
         votes.put(voteKey, updatedVote);  // Update the vote in the votes map
         return updatedVote;
     }
@@ -89,6 +97,11 @@ public class PollManager {
         int finalVoteCount = votes.size();
 
         System.out.println("Removed " + (initialVoteCount - finalVoteCount) + " associated votes.");
+    }
+
+    public Poll getPollById(Long pollId) {
+        // Assuming you have a map or list of polls where the poll ID is used as a key
+        return polls.get(pollId); // Adapt this line based on how you store the polls
     }
 
 }
