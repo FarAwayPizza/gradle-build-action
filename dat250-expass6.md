@@ -35,3 +35,6 @@ I have manage to do everything up until this step:
 
 
 For some reason I can't get it to run on localhost:8080 with the new front end and not the old demo one. 
+
+Front end link: https://github.com/FarAwayPizza/frontEnd-gradle-build-action/tree/master
+
