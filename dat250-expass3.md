@@ -58,34 +58,35 @@ Similarities between Aggregation Pipelines and SQL Queries:
 
 **Insert Operation**
 
-- Successfully inserted new documents into the `inventory` collection using the `insertMany()` method. _Include screenshot showing a successful insert operation._
+- Successfully inserted new documents into the `inventory` collection using the `insertMany()` method. 
 
-
-
-![[Screenshot 2024-10-07 at 19.23.33.png]]
+https://github.com/FarAwayPizza/gradle-build-action/blob/e9ed7e6354514e4e7d853f760e304e5797c40f5a/1.png
 
 **Query Operation**
 
-- Retrieved documents from the `inventory` collection using the `find()` method to filter by certain criteria. _Include screenshot of the query operation._
-  ![[Screenshot 2024-10-07 at 19.24.06.png]]
+- Retrieved documents from the `inventory` collection using the `find()` method to filter by certain criteria.
+
+  https://github.com/FarAwayPizza/gradle-build-action/blob/e9ed7e6354514e4e7d853f760e304e5797c40f5a/2.png
 
 
 **Update Operation**
 
-- Used the `updateOne()` method to modify specific fields in the documents, such as changing the quantity of items. _Include screenshot showing an update operation._
-  ![[Screenshot 2024-10-07 at 19.24.23.png]]
+- Used the `updateOne()` method to modify specific fields in the documents, such as changing the quantity of items.
+
+https://github.com/FarAwayPizza/gradle-build-action/blob/e9ed7e6354514e4e7d853f760e304e5797c40f5a/3.png
 
 **Delete Operation**
 
-- Performed deletion of specific documents from the `inventory` collection using `deleteMany()` to remove items with certain criteria. _Include screenshot of the delete operation._
-  ![[Screenshot 2024-10-07 at 19.25.48.png]]
+- Performed deletion of specific documents from the `inventory` collection using `deleteMany()` to remove items with certain criteria.
+
+  https://github.com/FarAwayPizza/gradle-build-action/blob/e9ed7e6354514e4e7d853f760e304e5797c40f5a/4.png
+  
 ### c) Aggregation Operations - Experiment 2
 
 In Experiment 2, I worked with the aggregation pipeline to group documents and calculate values. One such operation involved summing populations for specific states from the `zipcode_data` collection. The final output listed the total population per state.
 
 
-![[Screenshot 2024-10-07 at 19.26.22.png]]
-
+https://github.com/FarAwayPizza/gradle-build-action/blob/e9ed7e6354514e4e7d853f760e304e5797c40f5a/5.png
 
 ## 3. Reasoning on the Map-Reduce Operation
 
