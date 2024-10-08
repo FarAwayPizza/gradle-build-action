@@ -1,0 +1,20 @@
+import pika
+import sys
+
+# Step 1: Establish connection to RabbitMQ server
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+
+# Step 2: Declare a fanout exchange named 'logs'
+channel.exchange_declare(exchange='logs', exchange_type='fanout')
+
+# Step 3: Create the log message
+message = ' '.join(sys.argv[1:]) or "info: Hello World!"
+
+# Step 4: Publish the message to the 'logs' exchange
+channel.basic_publish(exchange='logs', routing_key='', body=message)
+
+print(f" [x] Sent {message}")
+
+# Step 5: Close the connection
+connection.close()

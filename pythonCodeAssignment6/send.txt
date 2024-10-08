@@ -1,0 +1,18 @@
+import pika
+
+# Step 1: Establish connection to RabbitMQ server
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+
+# Step 2: Declare a queue called 'hello'
+channel.queue_declare(queue='hello')
+
+# Step 3: Publish a message to the 'hello' queue
+channel.basic_publish(exchange='',
+                      routing_key='hello',
+                      body='Hello World!')
+print(" [x] Sent 'Hello World!'")
+
+# Step 4: Close the connection
+connection.close()
+

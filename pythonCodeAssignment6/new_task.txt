@@ -1,0 +1,25 @@
+import pika
+ import sys
+
+ # Step 1: Establish connection to RabbitMQ server
+ connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+ channel = connection.channel()
+
+ # Step 2: Declare a durable queue named 'task_queue'
+ channel.queue_declare(queue='task_queue', durable=True)
+
+ # Step 3: Create the message
+ message = ' '.join(sys.argv[1:]) or "Hello World!"
+
+ # Step 4: Publish the message to the 'task_queue' and make it persistent
+ channel.basic_publish(
+     exchange='',
+     routing_key='task_queue',
+     body=message,
+     properties=pika.BasicProperties(
+         delivery_mode=2,  # make message persistent
+     ))
+ print(f" [x] Sent '{message}'")
+
+ # Step 5: Close the connection
+ connection.close()
