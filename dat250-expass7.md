@@ -11,7 +11,11 @@ Other than that I hardly had any problems during this assignment.
 
 You can find the complete code for all the experiments on my GitHub repository at the following link:
 
+<<<<<<< Updated upstream
 ** https://github.com/FarAwayPizza/gradle-build-action/tree/main/pythonCodeAssignment6 **
+=======
+**  dfd **
+>>>>>>> Stashed changes
 
 This repository contains the code for:
 
@@ -24,6 +28,7 @@ This repository contains the code for:
 
 ### Completed installation for task 1.
 
+<<<<<<< Updated upstream
 ![image alt](https://github.com/FarAwayPizza/gradle-build-action/blob/d1aad3245ac03c6e0729c8cb6af9791ec6197f73/task1pic.png)
 
 ### Experiment 2: Hello World
@@ -44,4 +49,16 @@ This repository contains the code for:
 
 ![image alt](https://github.com/FarAwayPizza/gradle-build-action/blob/d1aad3245ac03c6e0729c8cb6af9791ec6197f73/t4p5.png)
 ![image alt](https://github.com/FarAwayPizza/gradle-build-action/blob/d1aad3245ac03c6e0729c8cb6af9791ec6197f73/t4p6.png)
+=======
+
+
+### Experiment 2: Hello World
+
+
+### Experiment 3: Work Queues
+
+
+### Experiment 4: Topics
+
+>>>>>>> Stashed changes
 
